@@ -7,6 +7,7 @@ function srpbs_glm_subject(dataDir)
 %-----------------------------------------------------------------------
 % Created: Apr 2024, Imre Kertesz, Translational Neuromodeling Unit,
 % University and ETH Zurich
+% Edited: May 2025, Leon Schönleber
 %-----------------------------------------------------------------------
 
 %dataDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine\sub-MOA101\ses-b0';
@@ -14,8 +15,6 @@ function srpbs_glm_subject(dataDir)
 % define where the code is located
 %[baseDir, ~] = fileparts(mfilename('fullpath'));
 baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
-
-'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine\sub-MOA101\ses-d2';
 
 % path to SPM.mat file (GLM result)
 firstlevelDir   = fullfile(baseDir,'sub-test1','glm');

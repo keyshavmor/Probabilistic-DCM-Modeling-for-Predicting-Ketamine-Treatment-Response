@@ -18,6 +18,7 @@ function matlabbatch = srpbs_prepro_adj2_subject(dataDir, run)
 %
 % Created: Apr 2024, Jakob Heinzle, Translational Neuromodeling Unit, IBT
 % University and ETH Zurich
+% Edited: May 2025, Leon Schönleber
 
 if nargin < 2
     run = 0;
@@ -97,12 +98,14 @@ matlabbatch{2}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
 %--------------------------------------------------------------------------
 % Normalisation (skstruct -> standard)
 %matlabbatch{3}.spm.spatial.preproc.channel.vols = {fullfile(struct_dir,
-%'defaced_mprage.nii')}; Jakobs skript.. which image to use?
+%'defaced_mprage.nii')}; Jakobs skript.. which image to use? -> T1w
+
 t1_file = spm_select('FPList', struct_dir, '^sub-.*_T1w\.nii$');
 matlabbatch{3}.spm.spatial.preproc.channel.vols = cellstr(t1_file);
 
 %matlabbatch{3}.spm.spatial.preproc.channel.vols = {fullfile(struct_dir, '^sub-.*_T1w\.nii$')};
-%??
+%cellstr or not??
+
 matlabbatch{3}.spm.spatial.preproc.channel.biasreg = 0.001;
 matlabbatch{3}.spm.spatial.preproc.channel.biasfwhm = 60;
 matlabbatch{3}.spm.spatial.preproc.channel.write = [1 1];
