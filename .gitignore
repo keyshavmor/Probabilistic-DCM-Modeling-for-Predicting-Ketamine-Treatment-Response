@@ -1,0 +1,4 @@
+# ignore everything under data/ds005917-download…
+/data/ds005917-download/*
+# …except keep the placeholder file
+!/data/ds005917-download/.gitkeep

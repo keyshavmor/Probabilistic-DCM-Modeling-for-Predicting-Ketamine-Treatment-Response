@@ -14,10 +14,19 @@ function srpbs_glm_subject(dataDir)
 
 % define where the code is located
 %[baseDir, ~] = fileparts(mfilename('fullpath'));
-baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
 
-% path to SPM.mat file (GLM result)
-firstlevelDir   = fullfile(baseDir,'sub-test1','glm');
+% old ---- leon
+% -----------------------------------------------------------------------
+%baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
+subjectDir   = fileparts(dataDir);  
+firstlevelDir = fullfile(subjectDir, 'glm');
+disp(['Using first‐level GLM folder: ', firstlevelDir]);
+assert(isfolder(firstlevelDir), ...
+       'Cannot find GLM folder: %s', firstlevelDir);
+
+% path to SPM.mat file (GLM result) old ------ leon
+%firstlevelDir   = fullfile(baseDir,'sub-test1','glm');
+
 
 % get all regions of interest
 %preproc_vol = dir(fullfile(baseDir,'sub-test1','func','s8wasub*.nii'));
