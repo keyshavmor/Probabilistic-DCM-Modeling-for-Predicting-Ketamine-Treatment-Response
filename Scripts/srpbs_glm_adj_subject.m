@@ -1,4 +1,4 @@
-function srpbs_glm_subject(dataDir)
+function srpbs_glm_adj_subject(dataDir)
 
 % This script demonstrates how to perform a GLM analysis for a subject from
 % the SRPBS Multidisorder MRI dataset. SPM needs to be installed. The
@@ -21,8 +21,10 @@ function srpbs_glm_subject(dataDir)
 subjectDir   = fileparts(dataDir);  
 firstlevelDir = fullfile(subjectDir, 'glm');
 disp(['Using first‐level GLM folder: ', firstlevelDir]);
-assert(isfolder(firstlevelDir), ...
-       'Cannot find GLM folder: %s', firstlevelDir);
+if ~isfolder(firstlevelDir)
+    mkdir(firstlevelDir);
+    fprintf('Created missing GLM folder: %s\n', firstlevelDir);
+end
 
 % path to SPM.mat file (GLM result) old ------ leon
 %firstlevelDir   = fullfile(baseDir,'sub-test1','glm');
