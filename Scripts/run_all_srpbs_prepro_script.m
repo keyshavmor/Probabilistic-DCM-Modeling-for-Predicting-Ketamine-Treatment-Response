@@ -1,5 +1,19 @@
+thisFile = mfilename('fullpath');
+scriptsDir = fileparts(thisFile);
+
+
+projectRoot = fileparts(scriptsDir);
+
+baseDir     = fullfile(projectRoot, 'data', 'ds005917-download');
+
+disp(['Using data folder: ', baseDir]);
+assert(isfolder(baseDir), 'Cannot find data folder: %s', baseDir);
+
+
+
+
 % Base directory containing all subject/session folders
-baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
+%baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
 
 % Get list of all subject folders
 subjects = dir(fullfile(baseDir, 'sub-MOA*'));
