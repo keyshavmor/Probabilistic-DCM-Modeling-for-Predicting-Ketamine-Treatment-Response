@@ -24,7 +24,11 @@ function srpbs_extract_VOI_subject(dataDir)
 
 
 % define where the code is located
-[baseDir, ~] = fileparts(mfilename('fullpath'));
+%[baseDir, ~] = fileparts(mfilename('fullpath'));
+thisFile = mfilename('fullpath');
+scriptsDir = fileparts(thisFile);
+projectRoot = fileparts(scriptsDir);
+
 
 % path to SPM.mat file (GLM result)
 %firstlevelDir   = fullfile(baseDir,'sub-0001','glm');
@@ -32,12 +36,13 @@ firstlevelDir	= fullfile(dataDir,'glm');
 
 % path to Brainnetome folder
 %parcelDir       = fullfile(baseDir,'Brainnetome2016');
-parcelDir = 'C:\Users\leon\Programming\Julia\TNM_project\git\rois Tozzi';
+%parcelDir = 'C:\Users\leon\Programming\Julia\TNM_project\git\rois Tozzi';
+parcelDir = fullfile(projectRoot, 'roisTozzi');
 
 % add the path to SPM ( PLEASE ADAPT THIS )
 %addpath('/Users/stefan/Documents/SPM/spm12');
 
-% specify the effect of interest
+% specify the effect of interest - which one?
 EoI_nr = NaN;
 
 % get all regions of interest
@@ -51,8 +56,8 @@ VOI_folder = fullfile(firstlevelDir,'VOI');
 if ( ~exist(VOI_folder,'dir') )
     mkdir(VOI_folder)
 else
-    delete(fullfile(VOI_folder,'VOI*.mat'))
-    delete(fullfile(VOI_folder,'VOI*.mat'))
+    %delete(fullfile(VOI_folder,'VOI*.mat'))
+    delete(fullfile(VOI_folder,'VOI*.nii'))
 end
         
 % choose which ROIs to extract
@@ -133,9 +138,10 @@ for number_of_regions = ROI_analyze
 end
 
 % move the extracted time series to the results folder
-movefile(fullfile(firstlevelDir,'VOI*.mat'),VOI_folder)
+%movefile(fullfile(firstlevelDir,'VOI*.mat'),VOI_folder)
+movefile(fullfile(firstlevelDir,'VOI*.nii'),VOI_folder)
 
-% delete the remaining files
-delete(fullfile(firstlevelDir,'VOI*'))
+% delete the remaining files -what should be deleted??
+%delete(fullfile(firstlevelDir,'VOI*'))
 
 end

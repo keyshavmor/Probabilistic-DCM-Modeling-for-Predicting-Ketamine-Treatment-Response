@@ -18,7 +18,8 @@ function srpbs_glm_adj_subject(dataDir)
 % old ---- leon
 % -----------------------------------------------------------------------
 %baseDir = 'C:\Users\leon\Programming\Julia\TNM_project\Data\Ketamine';
-subjectDir   = fileparts(dataDir);  
+%subjectDir   = fileparts(dataDir);
+subjectDir   = dataDir;
 firstlevelDir = fullfile(subjectDir, 'glm');
 disp(['Using first‐level GLM folder: ', firstlevelDir]);
 if ~isfolder(firstlevelDir)

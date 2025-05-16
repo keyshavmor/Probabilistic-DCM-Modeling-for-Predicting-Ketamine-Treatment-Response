@@ -5,21 +5,20 @@ scriptsDir  = fileparts(thisFile);
 projectRoot = fileparts(scriptsDir);      
 
 % Point  ROI folder
-roi_folder  = fullfile(projectRoot, 'rois Tozzi');
+roi_folder  = fullfile(projectRoot,'roisTozzi');
 
 disp(['Using ROIs folder: ', roi_folder]);
 assert(isfolder(roi_folder), 'Cannot find ROIs folder: %s', roi_folder);
 
 % 5) Now list your .nii files
-roi_files   = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
+%roi_files   = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
+roi_files   = dir(fullfile(roi_folder, '*.nii'));
 
 
 
-
-
-%roi_folder = 'C:\Users\leon\Programming\Julia\TNM_project\rois Tozzi\';
+%roi_folder = 'C:\Users\leon\Programming\Julia\TNM_project\roisTozzi\';
 % Define path to the 'rois Tozzi' folder (relative to script location)
-%roi_folder = fullfile(scriptDir, '..', 'rois Tozzi');
+%roi_folder = fullfile(scriptDir, '..', 'roisTozzi');
 
 %roi_files = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
 

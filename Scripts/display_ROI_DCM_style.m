@@ -2,10 +2,11 @@
 scriptDir = fileparts(mfilename('fullpath'));
 
 % Define path to the 'rois Tozzi' folder (relative to script location)
-roi_folder = fullfile(scriptDir, '..', 'rois Tozzi');
+roi_folder = fullfile(scriptDir, '..', 'roisTozzi');
 
 % Load ROIs of intrest
-roi_files = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
+%roi_files = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
+roi_files = dir(fullfile(roi_folder, '*.nii'));
 
 roi_centers = [];
 roi_names = {};
@@ -51,13 +52,13 @@ text(roi_centers(:,1), roi_centers(:,2), roi_centers(:,3), roi_names, ...
 
 % --- Optional: add example DCM connections ---
 connections = [
-    1 2;
-    2 3;
-    3 1;
-    1 4;
-    1 3;
-    4 2;
-    3 4;
+    %1 2;
+    %2 3;
+    %3 1;
+    %1 4;
+    %1 3;
+    %4 2;
+    %3 4;
 ];
 
 for i = 1:size(connections, 1)
