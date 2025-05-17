@@ -57,7 +57,9 @@ if ( ~exist(VOI_folder,'dir') )
     mkdir(VOI_folder)
 else
     %delete(fullfile(VOI_folder,'VOI*.mat'))
-    delete(fullfile(VOI_folder,'VOI*.nii'))
+    delete(fullfile(VOI_folder,'VOI*.mat'))
+    %delete(fullfile(firstlevelDir,'VOI*.mat')) -not
+
 end
         
 % choose which ROIs to extract
@@ -70,7 +72,8 @@ for number_of_regions = ROI_analyze
     matlabbatch{1}.spm.util.voi.spmmat = cellstr(fullfile(firstlevelDir,'SPM.mat'));
 
     % choose an adjustment of the time series (effects of interest)
-    matlabbatch{1}.spm.util.voi.adjust = EoI_nr;
+    matlabbatch{1}.spm.util.voi.adjust = EoI_nr; % <- prev
+    %matlabbatch{1}.spm.util.voi.adjust = 0;
 
     % choose session number
     matlabbatch{1}.spm.util.voi.session = 1;
@@ -104,12 +107,15 @@ for number_of_regions = ROI_analyze
     % asign the mask filename
     matlabbatch{1}.spm.util.voi.roi{2}.mask.image = cellstr(f);
 
-    % threshold the mask
+    % threshold the mask -
     matlabbatch{1}.spm.util.voi.roi{2}.mask.threshold = 0.5;
 
 
     % intersection of activation and sphere
     matlabbatch{1}.spm.util.voi.expression = 'i1 & i2';
+    
+    %select eigenvariate; alt: mean
+    %matlabbatch{1}.spm.util.voi.expression = 'eig';
 
     % specify input and output filenames
     Vi = [cellstr(fullfile(firstlevelDir,'mask.nii')); cellstr(fullfile(parcelDir, ROI_names(number_of_regions).name))];
@@ -120,16 +126,14 @@ for number_of_regions = ROI_analyze
 
     % load the output file to check whether there are voxels in VoI
     intersection = spm_read_vols(Vo);
-
+    
     % run the batch and extract the time series (in case there is data)
     if ( any(intersection(:) ~= 0) )
-        try
-            spm_jobman('run',matlabbatch);
-        catch
-            fprintf('\n WARNING: MODULE COULD NOT RUN\n\n')
-        end
-    else
-        fprintf('\n WARNING: NOT ENOUGH VOXELS FOUND IN ROI\n\n')
+    try
+        spm_jobman('run', matlabbatch);
+        fprintf('[OK] Extracted: %s\n', ROI_names(number_of_regions).name);
+    catch ME
+        fprintf('[ERROR] Could not extract %s: %s\n', ROI_names(number_of_regions).name, ME.message);
     end
 
     % clear the matlabbatch
@@ -139,9 +143,9 @@ end
 
 % move the extracted time series to the results folder
 %movefile(fullfile(firstlevelDir,'VOI*.mat'),VOI_folder)
-movefile(fullfile(firstlevelDir,'VOI*.nii'),VOI_folder)
+movefile(fullfile(firstlevelDir,'VOI*.mat'),VOI_folder)
 
 % delete the remaining files -what should be deleted??
-%delete(fullfile(firstlevelDir,'VOI*'))
+delete(fullfile(firstlevelDir,'VOI_*'))
 
 end
