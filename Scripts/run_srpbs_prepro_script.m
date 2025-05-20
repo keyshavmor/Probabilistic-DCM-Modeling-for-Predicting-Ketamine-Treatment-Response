@@ -3,7 +3,7 @@
 
 thisFile = mfilename('fullpath');
 scriptsDir = fileparts(thisFile);
-
+addpath(scriptsDir);
 
 projectRoot = fileparts(scriptsDir);
 
@@ -16,7 +16,7 @@ assert(isfolder(baseDir), 'Cannot find data folder: %s', baseDir);
 dataDir = fullfile(baseDir, 'sub-MOA102', 'ses-b0');
 
 % Run the preprocessing
-srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1 -> run the batch directly, run = 2 -> SPM Batch editor gui
+%srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1 -> run the batch directly, run = 2 -> SPM Batch editor gui
 srpbs_glm_adj_subject(dataDir);
 srpbs_extract_VOI_subject(dataDir);
 srpbs_construct_spectral_DCM_subject_v1(dataDir);

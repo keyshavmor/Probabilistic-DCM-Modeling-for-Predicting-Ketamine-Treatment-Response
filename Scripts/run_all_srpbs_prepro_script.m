@@ -1,5 +1,6 @@
 thisFile = mfilename('fullpath');
 scriptsDir = fileparts(thisFile);
+addpath(scriptsDir);
 
 
 projectRoot = fileparts(scriptsDir);
@@ -33,7 +34,7 @@ for i = 1:length(subjects)
         
         % Call the preprocessing function
         try
-            srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
+            %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
             srpbs_glm_adj_subject(dataDir);
             srpbs_extract_VOI_subject(dataDir);
             srpbs_construct_spectral_DCM_subject_v1(dataDir);
