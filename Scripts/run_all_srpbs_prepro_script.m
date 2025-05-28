@@ -35,8 +35,8 @@ for i = 1:length(subjects)
         % Call the preprocessing function
         try
             %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
-            srpbs_glm_adj_subject(dataDir);
-            srpbs_extract_VOI_subject(dataDir);
+            %srpbs_glm_adj_subject(dataDir);
+            %srpbs_extract_VOI_subject(dataDir);
             srpbs_construct_spDCM_DMN(dataDir);
         catch ME
             warning('Failed for %s %s: %s', subjects(i).name, sessions(j).name, ME.message);
