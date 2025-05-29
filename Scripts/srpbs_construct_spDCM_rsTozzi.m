@@ -1,4 +1,4 @@
-function srpbs_construct_spDCM_DMN(dataDir)
+function srpbs_construct_spDCM_rsTozzi(dataDir)
 %
 % This function constructs a spectral DCM for a single subject, using VOI time
 % series data extracted from fMRI data. It takes the dataDir as input, which
@@ -25,7 +25,7 @@ spm_get_defaults('cmdline', true); % This is crucial for suppressing GUIs
 % 1. Define Directories
 % ----------------------
 firstlevelDir = fullfile(dataDir, 'glm'); % Directory containing SPM.mat
-voiDir = fullfile(firstlevelDir, 'VOI_DMN'); % Directory containing VOI data (.mat files)
+voiDir = fullfile(firstlevelDir, 'VOI_rsTozzi'); % Directory containing VOI data (.mat files)
 
 % 2. Load VOI Data and SPM.mat
 % -----------------------------
@@ -36,7 +36,7 @@ catch
     error('Could not load SPM.mat from %s', fullfile(firstlevelDir, 'SPM.mat'));
 end
 
-%get the VOI 
+%change this for constructing other DCMs
 voi_files = dir(fullfile(voiDir, 'VOI_*.mat')); % select VOI files
 if isempty(voi_files)
     error('No VOI data files found in %s.', voiDir);
@@ -70,7 +70,7 @@ Y.dt = SPM.xY.RT;
 DCM = struct();
 
 % Basic DCM setup
-DCM.name = 'spDCM_DMN'; % Name for the saved file
+DCM.name = 'spDCM_rsTozzi'; % Name for the saved file
 DCM.n = num_regions; % Number of regions
 DCM.v = size(Y.y, 1); % Number of scans/timepoints
 
@@ -104,7 +104,6 @@ try
     output_filename = fullfile(firstlevelDir, [DCM_est.name '.mat']);
     save(output_filename, 'params');
 
-    
     
     disp(['Spectral DCM saved to: ' output_filename]);
 catch ME

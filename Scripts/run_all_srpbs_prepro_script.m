@@ -37,7 +37,18 @@ for i = 1:length(subjects)
             %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
             %srpbs_glm_adj_subject(dataDir);
             %srpbs_extract_VOI_subject(dataDir);
-            srpbs_construct_spDCM_DMN(dataDir);
+                       
+            %srpbs_extract_VOI_DMN(dataDir);
+            srpbs_extract_VOI_rsTozzi(dataDir);
+            srpbs_extract_VOI_rsTozzi_K(dataDir);
+
+            %srpbs_construct_spDCM_DMN(dataDir);
+            srpbs_construct_spDCM_rsTozzi(dataDir);
+            srpbs_construct_spDCM_rsTozzi_K(dataDir);
+
+
+    
+
         catch ME
             warning('Failed for %s %s: %s', subjects(i).name, sessions(j).name, ME.message);
         end

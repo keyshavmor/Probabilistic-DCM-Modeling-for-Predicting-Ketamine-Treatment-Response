@@ -18,6 +18,12 @@ dataDir = fullfile(baseDir, 'sub-MOA102', 'ses-b0');
 % Run the preprocessing
 %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1 -> run the batch directly, run = 2 -> SPM Batch editor gui
 %srpbs_glm_adj_subject(dataDir);
-%srpbs_extract_VOI_subject(dataDir);
-%srpbs_construct_spectral_DCM_subject_v1(dataDir);
-srpbs_construct_spDCM_DMN(dataDir);
+
+%srpbs_extract_VOI_DMN(dataDir);
+%srpbs_extract_VOI_rsTozzi(dataDir);
+srpbs_extract_VOI_rsTozzi_K(dataDir);
+
+%srpbs_construct_spDCM_DMN(dataDir);
+%srpbs_construct_spDCM_rsTozzi(dataDir);
+srpbs_construct_spDCM_rsTozzi_K(dataDir);
+

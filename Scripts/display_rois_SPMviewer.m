@@ -5,15 +5,15 @@ scriptsDir  = fileparts(thisFile);
 projectRoot = fileparts(scriptsDir);      
 
 % Point  ROI folder
-roi_folder  = fullfile(projectRoot,'roisTozzi');
+roi_folder  = fullfile(projectRoot,'combinedROIs');
 
 disp(['Using ROIs folder: ', roi_folder]);
 assert(isfolder(roi_folder), 'Cannot find ROIs folder: %s', roi_folder);
 
 % 5) Now list your .nii files
 %roi_files   = dir(fullfile(roi_folder, 'Defaultmode*.nii'));
-roi_files   = dir(fullfile(roi_folder, '*.nii'));
-
+roi_files   = dir(fullfile(roi_folder, 'combined_BG*.nii'));
+%roi_files   = dir(fullfile(roi_folder, '*PFC*.nii'));
 
 
 %roi_folder = 'C:\Users\leon\Programming\Julia\TNM_project\roisTozzi\';
