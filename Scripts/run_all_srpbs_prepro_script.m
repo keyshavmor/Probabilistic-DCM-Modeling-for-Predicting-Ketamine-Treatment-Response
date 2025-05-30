@@ -36,16 +36,19 @@ for i = 1:length(subjects)
         try
             %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
             %srpbs_glm_adj_subject(dataDir);
-            %srpbs_extract_VOI_subject(dataDir);
-                       
+            
+            %tic toc measures the time between tic and toc
+            tic
             %srpbs_extract_VOI_DMN(dataDir);
-            srpbs_extract_VOI_rsTozzi(dataDir);
-            srpbs_extract_VOI_rsTozzi_K(dataDir);
-
+            srpbs_extract_VOI_rsTozzi_11(dataDir);
+            srpbs_extract_VOI_rsTozzi_15(dataDir);
+            %srpbs_extract_VOI_rsTozzi_K(dataDir);
+            
             %srpbs_construct_spDCM_DMN(dataDir);
-            srpbs_construct_spDCM_rsTozzi(dataDir);
-            srpbs_construct_spDCM_rsTozzi_K(dataDir);
-
+            %srpbs_construct_spDCM_rsTozzi_11(dataDir);
+            %srpbs_construct_spDCM_rsTozzi_15(dataDir);
+            %srpbs_construct_spDCM_rsTozzi_K(dataDir);
+            toc
 
     
 

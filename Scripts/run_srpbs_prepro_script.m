@@ -19,11 +19,14 @@ dataDir = fullfile(baseDir, 'sub-MOA102', 'ses-b0');
 %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1 -> run the batch directly, run = 2 -> SPM Batch editor gui
 %srpbs_glm_adj_subject(dataDir);
 
+tic
 %srpbs_extract_VOI_DMN(dataDir);
-%srpbs_extract_VOI_rsTozzi(dataDir);
-srpbs_extract_VOI_rsTozzi_K(dataDir);
+srpbs_extract_VOI_rsTozzi_11(dataDir);
+srpbs_extract_VOI_rsTozzi_15(dataDir);
+%srpbs_extract_VOI_rsTozzi_K(dataDir);
 
 %srpbs_construct_spDCM_DMN(dataDir);
-%srpbs_construct_spDCM_rsTozzi(dataDir);
-srpbs_construct_spDCM_rsTozzi_K(dataDir);
-
+%srpbs_construct_spDCM_rsTozzi_11(dataDir);
+%srpbs_construct_spDCM_rsTozzi_15(dataDir);
+%srpbs_construct_spDCM_rsTozzi_K(dataDir);
+toc

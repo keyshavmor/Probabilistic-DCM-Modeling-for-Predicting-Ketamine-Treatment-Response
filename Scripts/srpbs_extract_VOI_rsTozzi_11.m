@@ -1,4 +1,4 @@
-function srpbs_extract_VOI_rsTozzi_K(dataDir)
+function srpbs_extract_VOI_rsTozzi_11(dataDir)
 
 % The script demonstrates how to extract time series from a whole-brain
 % parcellation (here: the Brainnetome atlas). SPM needs to be installed.
@@ -38,7 +38,7 @@ firstlevelDir	= fullfile(dataDir,'glm');
 % path to Brainnetome folder
 %parcelDir       = fullfile(baseDir,'Brainnetome2016');
 %parcelDir = 'C:\Users\leon\Programming\Julia\TNM_project\git\rois Tozzi';
-parcelDir = fullfile(projectRoot, 'roisTozzi_K');
+parcelDir = fullfile(projectRoot, 'roisTozzi');
 %parcelDir = fullfile(projectRoot, 'Brainnetome2016');
 
 % add the path to SPM ( PLEASE ADAPT THIS )
@@ -47,14 +47,17 @@ parcelDir = fullfile(projectRoot, 'roisTozzi_K');
 % specify the effect of interest - which one?
 EoI_nr = NaN;
 
-ROI_names = dir(fullfile(parcelDir,'*.nii'));
+attention_files = dir(fullfile(parcelDir, 'Attention*.nii'));
+defaultmode_files = dir(fullfile(parcelDir, 'Defaultmode*.nii'));
+
+ROI_names = [attention_files; defaultmode_files];
 
 %new_files = dir(fullfile(parcelDir, 'MyParcelPrefix*.nii'));
 %ROI_names(end+1:end+numel(new_files)) = new_files;
 % or: ROI_names(end+1) = new_file;
 
 % time series folder
-VOI_folder = fullfile(firstlevelDir,'VOI_rsTozzi_K');
+VOI_folder = fullfile(firstlevelDir,'VOI_rsTozzi_11');
 
 % check whether folder exists (and if so, delete existing files)
 if ( ~exist(VOI_folder,'dir') )
