@@ -1,6 +1,8 @@
 function srpbs_construct_spectral_DCM_subject_v1(dataDir)
 % srpbs_construct_spectral_DCM_subject(dataDir)
-%
+
+%This was the first version for constructing a spDCM - we didnt end up using it
+
 % This function constructs a spectral DCM for a single subject, using VOI time
 % series data extracted from fMRI data. It takes the dataDir as input, which
 % should contain the first-level GLM results (including the SPM.mat and VOI
