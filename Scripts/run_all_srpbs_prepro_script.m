@@ -32,7 +32,7 @@ for i = 1:length(subjects)
         
         % Call the functions
         try
-            srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
+            %srpbs_prepro_adj2_subject(dataDir, 1);  % run = 0 -> dryrun, run = 1
             %srpbs_glm_adj_subject(dataDir);
             
             %tic toc measures the time between tic and toc
