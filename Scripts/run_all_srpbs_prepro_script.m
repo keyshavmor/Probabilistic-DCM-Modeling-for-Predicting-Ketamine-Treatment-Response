@@ -15,16 +15,16 @@ assert(isfolder(baseDir), 'Cannot find data folder: %s', baseDir);
 
 
 % Get list of all subject folders
-subjects = dir(fullfile(baseDir, 'sub-MOA*'));
+subjects = dir(fullfile(baseDir, 'sub-MOA1*'));
 
 % Loop over subjects
-for i = 21:26  %1:length(subjects)
+for i = 1:length(subjects)
     subjDir = fullfile(baseDir, subjects(i).name);
     
     % Get list of all session folders within each subject folder
     sessions = dir(fullfile(subjDir, 'ses-b0*'));
     
-    for j = 0:length(sessions)
+    for j = 1:length(sessions)
         dataDir = fullfile(subjDir, sessions(j).name);
         
         % Print current subject and session
