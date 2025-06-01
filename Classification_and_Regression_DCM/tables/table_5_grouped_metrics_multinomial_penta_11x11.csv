@@ -1,0 +1,7 @@
+Fold,Accuracy,F1_Score,Macro_Precision,Macro_Recall
+1,0.5,0.27999999999999997,NaN,NaN
+2,0.0,0.0,NaN,NaN
+3,0.4,0.3,NaN,NaN
+4,0.0,0.0,NaN,NaN
+5,0.4,0.27999999999999997,0.4,NaN
+Average,0.26,0.172,NaN,NaN
