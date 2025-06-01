@@ -20,7 +20,3 @@ This repository contains notebooks and result files related to permutation testi
 2. Run the desired permutation classification notebook.
 3. View output CSVs in `permutation_results/`.
 4. Use `Visualization_perm.ipynb` to compare and visualize the aggregated results.
-
----
-
-For questions or contributions, please open an issue or submit a pull request.
