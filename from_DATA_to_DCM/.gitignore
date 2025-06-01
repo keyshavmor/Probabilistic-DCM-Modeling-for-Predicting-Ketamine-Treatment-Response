@@ -1,0 +1,22 @@
+# ignore everything under data/ds005917-download…
+/data/ds005917-download/*
+# …except keep the placeholder file
+!/data/ds005917-download/.gitkeep
+
+# ----------------------------------------------------
+# Ignore everything under these folders…
+external/Brainnetome2016/*
+external/tapas/*
+data/*
+rois Tozzi/*
+
+# …except the .gitkeep files that “reserve” the folders
+!external/Brainnetome2016/.gitkeep
+!external/tapas/.gitkeep
+!data/.gitkeep
+!data/ds005917-download/.gitkeep
+!rois Tozzi/.gitkeep
+# ----------------------------------------------------
+
+# (Optional) Also ignore macOS metadata:
+.DS_Store
