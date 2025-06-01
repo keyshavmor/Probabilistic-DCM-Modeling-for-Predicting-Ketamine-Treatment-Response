@@ -11,3 +11,5 @@
 - The DCM folders already contain the DCM files for ses-b0 for the 26 depressed subjects.
 
 - These notebooks and DCM files should be sufficient to obtain identical results to our findings in the project report.
+
+- The figures, tables and "Regression Performance" directories already contain all the important results from our experiments.
