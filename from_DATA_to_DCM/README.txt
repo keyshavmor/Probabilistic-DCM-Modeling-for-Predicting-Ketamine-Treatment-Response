@@ -1,9 +1,8 @@
 1. This folder contains everything from data preprocessing to DCM generation.
 
-2. The data needs to be downloaded from:
+2. The data needs to be downloaded from:https://openneuro.org/datasets/ds005917/versions/1.0.1/download
 
-    unzipped .nii.gz -> .nii
-    and placed into the data folder.
+3. Recursively unzip all the .nii.gz files in the dataset to .nii files and place the data into the data folder.
 
 3.The scripts use relative paths. Implementing the used hierarchy is advised. 
 
