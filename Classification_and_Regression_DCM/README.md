@@ -1,4 +1,4 @@
-# Classification and Regression on Generative embeddings
+# Classification and Regression on Generative Embeddings
 
 ## Getting started
 
