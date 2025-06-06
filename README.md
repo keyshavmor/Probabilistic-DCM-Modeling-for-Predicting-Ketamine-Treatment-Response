@@ -1,7 +1,9 @@
 # Project 8
 
+## The project was carried out as a part of ETH Zurich's Spring Semester 2025 course Translational Neuromodeling (227-0973-00L) taught by Prof. Dr. Klaas Enno Stephan
 
-## Goal: The project implements Probabilistic Dynamic Causal Modeling (DCM) on time series fMRI to predict Ketamine treatment response in depression patients using Machine Learning Models
+## Goal 
+The project implements Probabilistic Dynamic Causal Modeling (DCM) on time series fMRI to predict Ketamine treatment response in depression patients using Machine Learning Models
 
 ## Getting started
 
